@@ -6,7 +6,7 @@ import java.util.Stack;
 
 /**
  * This class implements a Binary Search Tree (BST) of any comparable data type. It supports add(), remove(),
- * contains(), size(), and height() as well as iterators for each of the following traversals: Inorder traversal,
+ * contains(), size(), isEmpty(), and height() as well as iterators for each of the following traversals: Inorder traversal,
  * Preorder traversal, Postorder traversal, and Levelorder traversal.
  *
  * @author Jeffrey Li
@@ -113,6 +113,10 @@ public class BinarySearchTree<T extends Comparable<T>> {
 
     public int size() {
         return size;
+    }
+
+    public boolean isEmpty() {
+        return size == 0;
     }
 
     public int height() {
