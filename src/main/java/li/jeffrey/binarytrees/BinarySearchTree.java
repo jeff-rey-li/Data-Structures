@@ -34,6 +34,9 @@ public class BinarySearchTree<T extends Comparable<T>> {
     }
 
     public boolean add(T data) {
+        if (data == null) {
+            return false;
+        }
         if (contains(data)) {
             return false;
         } else {
@@ -57,6 +60,9 @@ public class BinarySearchTree<T extends Comparable<T>> {
     }
 
     public boolean remove(T data) {
+        if (data == null) {
+            return false;
+        }
         if (!contains(data)) {
             return false;
         } else {
@@ -95,6 +101,9 @@ public class BinarySearchTree<T extends Comparable<T>> {
     }
 
     public boolean contains(T data) {
+        if (data == null) {
+            return false;
+        }
         return containsHelper(root, data);
     }
 
