@@ -21,7 +21,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
         Node left;
         Node right;
 
-        public Node(T data) {
+        private Node(T data) {
             this.data = data;
             left = null;
             right = null;
