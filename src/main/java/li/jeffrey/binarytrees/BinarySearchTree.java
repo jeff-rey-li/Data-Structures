@@ -47,16 +47,16 @@ public class BinarySearchTree<T extends Comparable<T>> {
 
     }
 
-    private Node addHelper(Node node, T data) {
-        if (node == null) {
+    private Node addHelper(Node current, T data) {
+        if (current == null) {
             return new Node(data);
         }
-        if (data.compareTo(node.data) < 0) {
-            node.left = addHelper(node.left, data);
-        } else if (data.compareTo(node.data) > 0) {
-            node.right = addHelper(node.right, data);
+        if (data.compareTo(current.data) < 0) {
+            current.left = addHelper(current.left, data);
+        } else if (data.compareTo(current.data) > 0) {
+            current.right = addHelper(current.right, data);
         }
-        return node;
+        return current;
     }
 
     public boolean remove(T data) {
@@ -72,32 +72,32 @@ public class BinarySearchTree<T extends Comparable<T>> {
         }
     }
 
-    private Node removeHelper(Node node, T data) {
-        if (node == null) {
+    private Node removeHelper(Node current, T data) {
+        if (current == null) {
             throw new RuntimeException();
         }
-        if (data.compareTo(node.data) < 0) {
-            node.left = removeHelper(node.left, data);
-        } else if (data.compareTo(node.data) > 0) {
-            node.right = removeHelper(node.right, data);
+        if (data.compareTo(current.data) < 0) {
+            current.left = removeHelper(current.left, data);
+        } else if (data.compareTo(current.data) > 0) {
+            current.right = removeHelper(current.right, data);
         } else {
-            if (node.left == null && node.right == null) {
+            if (current.left == null && current.right == null) {
                 return null;
-            } else if (node.left == null) {
-                return node.right;
-            } else if (node.right == null) {
-                return node.left;
+            } else if (current.left == null) {
+                return current.right;
+            } else if (current.right == null) {
+                return current.left;
             } else {
-                Node toReplace = node.right;
+                Node toReplace = current.right;
                 while (toReplace.left != null) {
                     toReplace = toReplace.left;
                 }
-                node.right = removeHelper(node.right, toReplace.data);
-                node.data = toReplace.data;
-                return node;
+                current.right = removeHelper(current.right, toReplace.data);
+                current.data = toReplace.data;
+                return current;
             }
         }
-        return node;
+        return current;
     }
 
     public boolean contains(T data) {
@@ -107,14 +107,14 @@ public class BinarySearchTree<T extends Comparable<T>> {
         return containsHelper(root, data);
     }
 
-    private boolean containsHelper(Node node, T data) {
-        if (node == null) {
+    private boolean containsHelper(Node current, T data) {
+        if (current == null) {
             return false;
         }
-        if (data.compareTo(node.data) < 0) {
-            return containsHelper(node.left, data);
-        } else if (data.compareTo(node.data) > 0) {
-            return containsHelper(node.right, data);
+        if (data.compareTo(current.data) < 0) {
+            return containsHelper(current.left, data);
+        } else if (data.compareTo(current.data) > 0) {
+            return containsHelper(current.right, data);
         } else {
             return true;
         }
