@@ -356,17 +356,4 @@ public class RedBlackTree<T extends Comparable<T>> {
             }
         };
     }
-
-    public static void main(String[] args) {
-        RedBlackTree<Integer> test = new RedBlackTree<>();
-        test.insert(1);
-        test.insert(2);
-        test.insert(3);
-        test.insert(5);
-        test.insert(4);
-        test.insert(-1);
-        test.insert(-2);
-        test.print();
-    }
-
 }
