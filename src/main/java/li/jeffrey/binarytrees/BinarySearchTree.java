@@ -167,7 +167,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
     }
 
     // Wrapper over print2DUtil()
-    public void print(Node root) {
+    public void print() {
         // Pass initial space count as 0
         printHelper(root, 0);
     }
